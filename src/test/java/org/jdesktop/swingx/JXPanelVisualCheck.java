@@ -8,12 +8,12 @@
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -22,39 +22,21 @@
 package org.jdesktop.swingx;
 
 
-import java.awt.BasicStroke;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.GridLayout;
-import java.awt.Paint;
-import java.awt.event.ActionEvent;
-import java.util.logging.Logger;
-
-import javax.imageio.ImageIO;
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
-import javax.swing.UIDefaults;
-import javax.swing.UIManager;
-
 import org.jdesktop.swingx.action.AbstractActionExt;
 import org.jdesktop.swingx.painter.ImagePainter;
 import org.jdesktop.swingx.painter.MattePainter;
 import org.jdesktop.swingx.test.XTestUtils;
 import org.jdesktop.swingx.util.PaintUtils;
 
-import com.sun.java.swing.Painter;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.util.logging.Logger;
 
 /**
  * Contains methods to visually test JXPanel.
- * 
+ *
  * @author Jeanette Winzenburg
  */
 public class JXPanelVisualCheck extends InteractiveTestCase {
@@ -80,7 +62,7 @@ public class JXPanelVisualCheck extends InteractiveTestCase {
     /**
      * Issue #1515-swingx: painting artefacts in a JXFrame (which uses JXPanel
      * as rootPane)
-     * 
+     *
      * If the upper frame contains a JXPanel with alpha, the lower background is
      * painted only below the area of the upper frame. All fine without alpha on
      * the upper. The exact outcome is erractic (sometimes half or even fully
@@ -104,8 +86,8 @@ public class JXPanelVisualCheck extends InteractiveTestCase {
     /**
      * Issue #1516-swingx: need feature to _not_ paint the background if alpha
      * and not-opaque
-     * 
-     * 
+     *
+     *
      */
     public void interactiveBackgroundAlphaToggleOpaque() {
         JPanel container = new JPanel(new GridLayout(0, 3));
@@ -193,20 +175,20 @@ public class JXPanelVisualCheck extends InteractiveTestCase {
 
     /**
      * Issue ??-swingx: support core painters in synth-based LAFs
-     * 
+     *
      * In synth-based LAFs (core) painters are applied on top of the background
      * fill and below the foreground (== content) painting. SwingX painters are
      * applied on top of the background but below the core painter.
-     * 
+     *
      * The example below has:
-     * 
+     *
      * - yellowish background color - SwingX ImagePainter - core painter which
      * paints a diagonal line (top left to bottom right) - a label as content
-     * 
+     *
      * With Nimbus, all three "background" layers must be visible
-     * 
+     *
      * Actions:
-     * 
+     *
      * - toggle opaqueness: if false, the background color must not be painted -
      * toggle alpha of background color: must not show any artefacts - toggle
      * alpha of containter: must not show any artefacts, must respect the
@@ -355,17 +337,17 @@ public class JXPanelVisualCheck extends InteractiveTestCase {
 
     /**
      * See a painter at work.
-     * 
+     *
      * Plus Issue ??-swingx: setting opaqueness _after_ the painter leads to
      * painting artefacts.
-     * 
+     *
      * Here: run this check with several tests active so that the frame create
      * here is overlapped by others, the click on its title to move to front.
      * The background is not uniform: the formerly covered part is grey, the
      * formerly exposed part is white.
-     * 
+     *
      * Update: probably similar to #1515
-     * 
+     *
      * @throws Exception
      */
     public void interactiveIconPainter() throws Exception {
@@ -410,7 +392,7 @@ public class JXPanelVisualCheck extends InteractiveTestCase {
     /**
      * do-nothing method - suppress warning if there are no other test fixtures
      * to run.
-     * 
+     *
      */
     public void testDummy() {
 
