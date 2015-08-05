@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <groupId>com.haulmont.thirdparty</groupId>
-  <version>1.6.5-1</version>
+  <version>1.6.5-1.cuba.0</version>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>swingx-core</artifactId>
   <packaging>jar</packaging>
@@ -25,45 +25,45 @@
         <!-- only used by JXLoginPane -->
   		<groupId>org.swinglabs.swingx</groupId>
   		<artifactId>swingx-autocomplete</artifactId>
-  		<version>${project.version}</version>
+  		<version>1.6.5-1</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>org.swinglabs.swingx</groupId>
   		<artifactId>swingx-action</artifactId>
-  		<version>${project.version}</version>
+  		<version>1.6.5-1</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>org.swinglabs.swingx</groupId>
   		<artifactId>swingx-plaf</artifactId>
-  		<version>${project.version}</version>
+  		<version>1.6.5-1</version>
   		<scope>compile</scope>
   	</dependency>
     <dependency>
         <groupId>org.swinglabs.swingx</groupId>
         <artifactId>swingx-graphics</artifactId>
-        <version>${project.version}</version>
+        <version>1.6.5-1</version>
         <type>jar</type>
         <scope>compile</scope>
     </dependency>
   	<dependency>
   		<groupId>org.swinglabs.swingx</groupId>
   		<artifactId>swingx-painters</artifactId>
-  		<version>${project.version}</version>
+  		<version>1.6.5-1</version>
   		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>org.swinglabs.swingx</groupId>
   		<artifactId>swingx-mavensupport</artifactId>
-  		<version>${project.version}</version>
+  		<version>1.6.5-1</version>
   		<scope>compile</scope>
   		<optional>true</optional>
   	</dependency>
   	<dependency>
   		<groupId>org.swinglabs.swingx</groupId>
   		<artifactId>swingx-testsupport</artifactId>
-  		<version>${project.version}</version>
+  		<version>1.6.5-1</version>
   		<type>jar</type>
   		<scope>test</scope>
   	</dependency>
@@ -74,9 +74,12 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
+        <version>2.3.2</version>
         <configuration>
           <archive>
-              <manifestFile>${project.generatedAnnotations}/META-INF/MANIFEST.MF</manifestFile>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
           </archive>
         </configuration>
       </plugin>

@@ -188,6 +188,14 @@ public class JXTreeTable extends JXTable {
 
     }
 
+    // Haulmont API
+    protected void beforeDelayedStructureChange() {
+    }
+
+    // Haulmont API
+    protected void afterDelayedStructureChange() {
+    }
+
     /**
      * Initializes this JXTreeTable and permanently binds the specified renderer
      * to it.
@@ -2513,7 +2521,11 @@ public class JXTreeTable extends JXTable {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
+                    treeTable.beforeDelayedStructureChange();
+
                     fireTableStructureChanged();
+
+                    treeTable.afterDelayedStructureChange();
                 }
             });
         }
@@ -2526,7 +2538,11 @@ public class JXTreeTable extends JXTable {
             SwingUtilities.invokeLater(new Runnable() {
                 @Override
                 public void run() {
+                    treeTable.beforeDelayedStructureChange();
+
                     fireTableDataChanged();
+
+                    treeTable.afterDelayedStructureChange();
                 }
             });
         }
